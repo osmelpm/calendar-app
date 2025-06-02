@@ -1,7 +1,7 @@
-import { addHours } from "date-fns";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { addHours } from "date-fns";
 
-import { CalendarEvent, CalendarState } from "../types";
+import { CalendarEvent, CalendarState } from "./types";
 
 const events: CalendarEvent[] = [
   {
