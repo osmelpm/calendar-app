@@ -1,33 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
+import { AuthResponse, StartLogin, StartRegister } from "./types";
+import { calendarApi } from "../api";
 import {
   clearErrorMessage,
+  onLogoutCalendar,
   AppDispatch,
   onChecking,
   RootState,
   onLogout,
   onLogin,
 } from "../store";
-import { calendarApi } from "../api";
-
-type StartLogin = {
-  email: string;
-  password: string;
-};
-
-type StartRegister = {
-  name: string;
-  email: string;
-  password: string;
-};
-
-type AuthResponse = {
-  uid: string;
-  name: string;
-  email: string;
-  token: string;
-};
 
 export const useAuthStore = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -150,6 +134,7 @@ export const useAuthStore = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("token-init-date");
     dispatch(onLogout());
+    dispatch(onLogoutCalendar());
   };
 
   return {

@@ -1,7 +1,7 @@
 export type CalendarEvent = {
-  _id?: number;
+  id?: string;
   title: string;
-  notes: string;
+  notes?: string | undefined;
   start: Date;
   end: Date;
   user: {
@@ -12,5 +12,6 @@ export type CalendarEvent = {
 
 export type CalendarState = {
   events: CalendarEvent[];
+  isLoadingEvents: boolean;
   activeEvent: CalendarEvent | null;
 };

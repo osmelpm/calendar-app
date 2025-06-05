@@ -22,15 +22,11 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const initialState: CalendarEvent = {
+const initialState: Omit<CalendarEvent, "user"> = {
   title: "",
   notes: "",
   start: new Date(),
   end: addHours(new Date(), 2),
-  user: {
-    _id: "1",
-    name: "John Doe",
-  },
 };
 
 export const CalendarModal = () => {
